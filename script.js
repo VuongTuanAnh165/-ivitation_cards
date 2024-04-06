@@ -6,7 +6,7 @@ $(document).ready(function () {
 			"id": 26122001,
 			"pronouns": "mẹ già",
 			"name": "Phạm Thanh Tâm",
-			'img': 'image/26122001.jpg'
+			'avatar': 'image/26122001.jpg'
 		},
 		{
 			"id": 2,
@@ -20,6 +20,7 @@ $(document).ready(function () {
 		console.log(result)
 		$("#pronouns").text(result.pronouns)
 		$("#name").text(result.name)
+		$("#avatar").attr("src", result.avatar)
 	}
 
 	getText()
