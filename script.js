@@ -25,7 +25,7 @@ $(document).ready(function () {
 	function getText() {
 		const queryString = window.location.search.replace("?", '');
 		const indexOfAmpersand = queryString.indexOf('&');
-		const key = queryString.slice(1, indexOfAmpersand);
+		const key = queryString.slice(0, indexOfAmpersand);
 		const result = data.find(item => item.id === Number(key));
 		$("#pronouns").text(result.pronouns)
 		$("#name").text(result.name)
