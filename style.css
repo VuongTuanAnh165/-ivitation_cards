@@ -127,6 +127,14 @@ body {
 
 }
 
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
 .frame-top {
     background-color: #b48554;
     height: 45px;
@@ -187,10 +195,13 @@ body {
 .box img {
     max-height: 634px;
     max-width: 100%;
+    rotate: -5deg;
+}
+
+.img-common {
     object-fit: cover;
     background-color: #ffffff;
     box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.75);
-    rotate: -5deg;
 }
 
 .title {
@@ -297,5 +308,138 @@ body {
     .avatar img {
         width: 50px;
         height: 50px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: space-between;
+    }
+
+    body {
+        background-image: url('image/1.png');
+        background-repeat: no-repeat;
+        background-color: #2b471f;
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+    }
+
+    footer img {
+        width: 50%;
+    }
+
+    .title {
+        text-transform: uppercase;
+        font-family: "Cabin", sans-serif;
+        font-size: 1.2rem;
+        color: #904B1F;
+        background-color: #efebe0;
+        width: fit-content;
+        padding: 20px;
+        border-radius: 15px;
+        line-height: inherit;
+        margin-top: 50px;
+    }
+
+    .avatar img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .content img {
+        width: 250px;
+        height: 200px;
+        position: absolute;
+        top: -110px;
+    }
+
+    .information {
+        background-color: #faf6f2;
+        width: 80%;
+    }
+
+    .name {
+        font-family: "Dancing Script", cursive;
+        background-color: unset;
+        font-size: 2rem;
+        text-align: center;
+        rotate: -5deg;
+        margin-top: 100px;
+    }
+
+    .information-name {
+        text-transform: uppercase;
+        font-family: "Cabin", sans-serif;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .time {
+        font-family: "Cabin", sans-serif;
+        padding: 0;
+        background-color: unset;
+        font-size: 1.3rem;
+    }
+
+    .hour {
+        font-family: "Cabin", sans-serif;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .address {
+        font-family: "Cabin", sans-serif;
+        color: #AB7836;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .information-name {
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (max-height: 810px) {
+    .title {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-height: 760px) {
+    .address {
+        margin-bottom: 30px;
+    }
+
+    .content {
+        margin-top: 100px;
     }
 }

@@ -9,14 +9,8 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script:wght@400..700&display=swap"
-        rel="stylesheet">
     <link
-        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Asap:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@400..700&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Asap:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@400..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Asap:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@400..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
         rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
@@ -34,32 +28,32 @@
         <li></li>
         <li></li>
     </ul>
-    <div class="audio">
+    <!-- <div class="audio">
         <audio id="player" controls autoplay preload="auto">
             <source src="https://redirect.nhq.vn/demo/audio/Girls_Like_You.mp3" type="audio/mpeg">
         </audio>
-    </div>
-    <div class="frame-border frame-border-1 frame-size-1 frame-right-1"></div>
-    <div class="frame-border frame-border-1 frame-size-2 frame-right-2"></div>
-    <div class="frame-border frame-border-2 frame-size-1 frame-left-1"></div>
-    <div class="frame-border frame-border-2 frame-size-2 frame-left-2"></div>
-    <main>
+    </div> -->
+    <main class="pc">
+        <div class="frame-border frame-border-1 frame-size-1 frame-right-1"></div>
+        <div class="frame-border frame-border-1 frame-size-2 frame-right-2"></div>
+        <div class="frame-border frame-border-2 frame-size-1 frame-left-1"></div>
+        <div class="frame-border frame-border-2 frame-size-2 frame-left-2"></div>
         <div class="frame-top">
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-5">
                     <div class="box d-flex justify-content-center align-items-center">
-                        <img src="image/me.jpg">
+                        <img class="img-common" src="image/me.jpg">
                     </div>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-6 d-flex flex-column box justify-content-center align-items-center">
                     <div class="title">
-                        Thân mời <span id="pronouns"></span>:
+                        Thân mời <span class="pronouns-to"></span>:
                         <div class="avatar">
-                            <img id="avatar" class="mx-2" src="">
-                            <span id="name"></span><br>
+                            <img class="avatar-to img-common" class="mx-2" src="">
+                            <span class="name-to"></span><br>
                             Đến dự lễ tốt nghiệp của
                         </div>
                     </div>
@@ -73,6 +67,31 @@
                 </div>
             </div>
         </div>
+    </main>
+
+    <main class="mobile">
+        <div class="title">
+            Xin thông báo đến <span class="pronouns-to"></span>:
+            <div class="avatar">
+                <img class="avatar-to img-common" class="mx-2" src="">
+                <span class="name-to"></span>
+            </div>
+        </div>
+        <div class="content">
+            <img class="img-common" src="image/me.jpg">
+            <div class="information">
+                <div class="me">
+                    <div class="name">Vương Tuấn Anh</div>
+                </div>
+                <div class="information-name">đến dự Tốt nghiệp đại học</div>
+                <div class="time">24 | 04 | 2024</div>
+                <div class="hour">10:00 am</div>
+                <div class="address">Trường đại học Điện lực</div>
+            </div>
+        </div>
+        <footer>
+            <img src="image/2_bottom.png">
+        </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
