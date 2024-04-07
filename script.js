@@ -60,6 +60,18 @@ $(document).ready(function () {
 			name: "Hưng âm 50 điểm",
 			avatar: "image/21102000.jpg",
 		},
+		{
+			id: 2732002,
+			pronouns: "ông anh",
+			name: "Hưng âm 50 điểm",
+			avatar: "image/21102000.jpg",
+		},
+		{
+			id: 2472001,
+			pronouns: "bạn",
+			name: "Yến xinh đẹp",
+			avatar: "image/2472001.jpg",
+		},
 	];
 
 	function getText() {
