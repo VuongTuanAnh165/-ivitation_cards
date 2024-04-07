@@ -38,7 +38,7 @@ $(document).ready(function () {
 		},
 		{
 			id: 20112002,
-			pronouns: "đưa cháu",
+			pronouns: "đứa cháu",
 			name: "Thảo mồm điêu",
 			avatar: "image/20112002.jpg",
 		},
