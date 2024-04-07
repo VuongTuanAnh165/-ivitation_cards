@@ -61,7 +61,7 @@ $(document).ready(function () {
 			avatar: "image/21102000.jpg",
 		},
 		{
-			id: 2732002,
+			id: 21102000,
 			pronouns: "ông anh",
 			name: "Hưng âm 50 điểm",
 			avatar: "image/21102000.jpg",
@@ -71,6 +71,12 @@ $(document).ready(function () {
 			pronouns: "bạn",
 			name: "Yến xinh đẹp",
 			avatar: "image/2472001.jpg",
+		},
+		{
+			id: 2732002,
+			pronouns: "em",
+			name: "Đoàn Thị Bích Diệp",
+			avatar: "image/2732002.jpg",
 		},
 	];
 
