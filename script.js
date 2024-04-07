@@ -54,6 +54,12 @@ $(document).ready(function () {
 			name: "Mạc Lâm",
 			avatar: "image/972001.jpg",
 		},
+		{
+			id: 21102000,
+			pronouns: "ông anh",
+			name: "Hưng âm 50 điểm",
+			avatar: "image/21102000.jpg",
+		},
 	];
 
 	function getText() {
