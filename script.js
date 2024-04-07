@@ -48,6 +48,12 @@ $(document).ready(function () {
 			name: "Bình giò trả",
 			avatar: "image/462005.jpg",
 		},
+		{
+			id: 972001,
+			pronouns: "bạn 'nhậu'",
+			name: "Mạc Lâm",
+			avatar: "image/972001.jpg",
+		},
 	];
 
 	function getText() {
