@@ -1,107 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="vi">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thiệp mời tốt nghiệp</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Asap:ital,wght@0,100..900;1,100..900&family=Dancing+Script:wght@400..700&family=Saira:ital,wght@0,100..900;1,100..900&display=swap&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
-        rel="stylesheet">
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Chip chip</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+    <script type="text/javascript" charset="utf-8">
+        function hasClassName(inElement, inClassName) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+            return regExp.test(inElement.className);
+        }
+
+        function addClassName(inElement, inClassName) {
+            if (!hasClassName(inElement, inClassName))
+                inElement.className = [inElement.className, inClassName].join(' ');
+        }
+
+        function removeClassName(inElement, inClassName) {
+            if (hasClassName(inElement, inClassName)) {
+                var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+                var curClasses = inElement.className;
+                inElement.className = curClasses.replace(regExp, ' ');
+            }
+        }
+
+        function toggleClassName(inElement, inClassName) {
+            if (hasClassName(inElement, inClassName))
+                removeClassName(inElement, inClassName);
+            else
+                addClassName(inElement, inClassName);
+        }
+
+        function toggleShape() {
+            var shape = document.getElementById('shape');
+            if (hasClassName(shape, 'cube') || hasClassName(shape, 'autoLoad')) {
+                if (hasClassName(shape, 'cube')) {
+                    removeClassName(shape, 'cube');
+                }
+                if (hasClassName(shape, 'autoLoad')) {
+                    removeClassName(shape, 'autoLoad');
+                }
+                addClassName(shape, 'ring');
+            } else {
+                removeClassName(shape, 'ring');
+                addClassName(shape, 'cube');
+            }
+
+            var stage = document.getElementById('stage');
+            if (hasClassName(shape, 'ring'))
+                stage.style.webkitTransform = 'translateZ(-200px)';
+            else
+                stage.style.webkitTransform = '';
+        }
+
+        function downloadLink() {
+            location.href = 'https://www.facebook.com/';
+        }
+
+        var count = 0;
+        var num_bg = 1;
+        var next_bg = 0;
+        var preLoadbg;
+
+        function timedCount() {
+            if (count >= 8) {
+                count = 0;
+                autoLoad();
+            } else {
+                count = count + 1;
+            }
+            if (next_bg >= 15) {
+                num_bg = num_bg + 1;
+                if (num_bg > 10) {
+                    num_bg = 1;
+                }
+                document.body.style.backgroundImage = "url(css/bg/" + num_bg + ".jpg)";
+                preLoadbg = new Image();
+                if (num_bg == 10) {
+                    preLoadbg.src = "css/bg/1.jpg";
+                } else {
+                    preLoadbg.src = "css/bg/" + (num_bg + 1) + ".jpg";
+                }
+                next_bg = 0;
+            } else {
+                next_bg = next_bg + 1;
+            }
+            setTimeout(timedCount, 1000);
+        }
+
+        function autoLoad() {
+            var shapeTest = document.getElementById('shape');
+            if (hasClassName(shapeTest, 'cube')) {
+                removeClassName(shapeTest, 'cube');
+                addClassName(shapeTest, 'autoLoad');
+            } else {
+                toggleShape();
+            }
+        }
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
 </head>
 
-<body>
-    <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <!-- <div class="audio">
-        <audio id="player" controls autoplay preload="auto">
+<body onload="timedCount()">
+<div class="panel">
+    <div class="audio">
+        <audio id="player" controls autoplay preload="none">
             <source src="https://redirect.nhq.vn/demo/audio/Girls_Like_You.mp3" type="audio/mpeg">
         </audio>
-    </div> -->
-    <main class="pc">
-        <div class="frame-border frame-border-1 frame-size-1 frame-right-1"></div>
-        <div class="frame-border frame-border-1 frame-size-2 frame-right-2"></div>
-        <div class="frame-border frame-border-2 frame-size-1 frame-left-1"></div>
-        <div class="frame-border frame-border-2 frame-size-2 frame-left-2"></div>
-        <div class="frame-top">
+    </div>
+    <div class="author">
+        <button onclick="downloadLink()">&copy; Chip Chip</button>
+    </div>
+    <div class="clear"></div>
+</div>
+<div id="container">
+    <div id="stage">
+        <div id="shape" class="cube backfaces">
+            <div class="plane one"></div>
+            <div class="plane two"></div>
+            <div class="plane three"></div>
+            <div class="plane four"></div>
+            <div class="plane five"></div>
+            <div class="plane six"></div>
+            <div class="plane seven"></div>
+            <div class="plane eight"></div>
+            <div class="plane nine"></div>
+            <div class="plane ten"></div>
+            <div class="plane eleven"></div>
+            <div class="plane twelve"></div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-5">
-                    <div class="box d-flex justify-content-center align-items-center">
-                        <img class="img-common" src="image/me.jpg">
-                    </div>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-6 d-flex flex-column box justify-content-center align-items-center">
-                    <div class="title">
-                        Thân mời <span class="pronouns-to"></span>:
-                        <div class="avatar">
-                            <img class="avatar-to img-common" class="mx-2" src="">
-                            <span class="name-to"></span><br>
-                            Đến dự lễ tốt nghiệp của
-                        </div>
-                    </div>
-                    <div class="me my-5">
-                        <div class="name">Vương Tuấn Anh</div>
-                    </div>
-                    <hr class="hr-1">
-                    <div class="time my-5">Ngày 24 tháng 4 lúc: 10h<br>Tại: Trường đại học Điện lực</div>
-                    <div class="note mx-5">Trong trường hợp không tìm thấy người, vui lòng liên hệ qua <br>SĐT:
-                        0399338947</div>
-                </div>
-            </div>
-        </div>
-    </main>
+    </div>
+</div>
+<script type="text/javascript">
 
-    <main class="mobile">
-        <div class="title">
-            Xin thông báo đến <span class="pronouns-to"></span>:
-            <div class="avatar">
-                <img class="avatar-to img-common" class="mx-2" src="">
-                <span class="name-to"></span>
-            </div>
-        </div>
-        <div class="content">
-            <img class="img-common" src="image/me.jpg">
-            <div class="information">
-                <div class="me">
-                    <div class="name">Vương Tuấn Anh</div>
-                </div>
-                <div class="information-name">đến dự Tốt nghiệp đại học</div>
-                <div class="time">24 | 04 | 2024</div>
-                <div class="hour">10:00 am</div>
-                <div class="address">Trường đại học Điện lực</div>
-            </div>
-        </div>
-        <footer>
-            <img src="image/2_bottom.png">
-        </footer>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    var audios = [
+        "music/1.mp3",
+        "music/2.mp3",
+        "music/3.mp3",
+        "music/4.mp3",
+        "music/5.mp3",
+        "music/6.mp3",
+        "music/7.mp3",
+        "music/8.mp3",
+        "https://redirect.nhq.vn/demo/audio/A_Little_Love.mp3",
+        "https://redirect.nhq.vn/demo/audio/Beautiful_In_White.mp3",
+        "https://redirect.nhq.vn/demo/audio/Proud_Of_You.mp3"
+    ];
+
+    var music = document.getElementById("player");
+    var getSrc = document.getElementsByTagName("source");
+
+
+    getSrc[0].src = audios[Math.floor(Math.random() * 10)];
+    music.load();
+
+    var index = audios.indexOf(getSrc[0].src);
+
+    music.addEventListener('ended', function () {
+        if (index == -1 || index >= 9) {
+            index = 0;
+        } else {
+            index = index + 1;
+        }
+        getSrc[0].src = audios[index];
+        music.load();
+        music.play();
+    });
+
+    var firstPreload = new Image();
+    firstPreload.src = "css/bg/2.jpg";
+
+</script>
 </body>
 
 </html>
